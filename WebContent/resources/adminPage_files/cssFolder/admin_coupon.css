@@ -1,0 +1,467 @@
+/* ============================== < TOP �쁺�뿭 > ================================== */
+.top{
+  width: 99%;
+  height: 57px;
+  background-color: white;
+  border-bottom: 1px solid #aaa;
+  position: relative;
+  margin-left: 10px;
+}
+
+.top>table tr>td{
+    border: 0;
+    border-right: 1px solid white;
+    border-radius: 5px;
+    line-height: 40px;
+    background-color: rgb(41, 128, 185);
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+}
+
+.top>table tr>td:hover{
+  background-color: rgb(52, 52, 52);
+}
+
+/* ============================== < middle �쁺�뿭 > ================================== */
+.middle{
+    position: relative;
+    width: 1400px;
+    height: 90px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#ms_img{
+    vertical-align: middle;
+    background: url("../iconFolder/search_icon.png") no-repeat  ;
+    background-color : rgb(41, 128, 185);
+    color: white;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+}
+
+#mid_search{
+    line-height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: 15px;
+    
+}
+
+#mid_search *{
+    border-radius: 6px;
+}
+
+#couponSearch{
+    width: 550px;
+    height: 64px;
+}
+
+  #ms_select{
+    width: 110px;
+    height: 64px;
+  }
+
+  .middle_left{
+    width: 100%;
+    height: 2000px;
+    margin: 0 auto;
+    margin-right: 0;
+  }
+
+  #ml_table{
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  #ml_table table{
+  border-top: 1px solid #aaa;
+  width: 99%;
+  margin: 0 auto;
+  margin-left: 10px;
+  box-sizing: border-box;
+  }
+  
+  #ml_table table>tbody td{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+  thead th {
+    position: sticky;
+    top: 0;
+    border-top: 0;
+    background-clip: padding-box;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,192,0.1);
+    backdrop-filter: blur(2px);
+  }
+  
+
+  table {
+    border-collapse: collapse;
+    border: 0;
+  }
+
+  th,
+  td {
+    border: 1px solid #aaa;
+    background-clip: padding-box;
+    scroll-snap-align: start;
+  }
+
+  thead {
+    z-index: 1000;
+    position: relative;
+    margin:0;
+  }
+
+  th,
+  td {
+    padding: 0.6rem;
+    min-width: 4.5rem;
+    margin: 0;
+  }
+
+  td{
+    text-align: left;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    border-top: 0;
+    background-clip: padding-box;
+  }
+
+  tbody {
+    z-index: 10;
+    position: relative;
+  }
+
+	.list-area>thead>tr{
+    position: sticky;
+    background-clip: padding-box;
+  }
+
+  .list-area{
+    overflow: auto;
+  }
+  #insert_coupon{
+    position: absolute;
+    left: 86.4%;
+    bottom: 5px;
+    width: 100px;
+    height: 35px;
+  }
+
+  #insert_coupon button{
+    background-color: rgb(41, 128, 185);
+    border-radius: 4px;
+    color: white;
+  }
+
+  #select_del{
+    width: 100px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-right:4px;
+  }
+
+  #select_del button{
+    background-color: rgb(41, 128, 185);
+    border-radius: 4px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    cursor: pointer;
+  }
+
+  #delboxSize{
+    padding: 0;
+    position: relative;
+    text-align: center;
+  }
+
+  #ml_table>table input[type="checkbox"]{
+    vertical-align: middle;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+  }
+
+  #delboxSize2{
+    padding: 0;
+    width: 5px;
+    height: 5px;
+  }
+  .list-area>tbody>tr{
+    cursor: pointer;
+  }
+
+  .list-area>tbody>tr:hover{
+		background-color: darkgrey;
+	} 
+  
+  
+   /* =============== Modal �쁺�뿭 =============== */
+  .modal{
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.75);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /*�쟾泥댁쁺�뿭 �꽕�젙*/
+    justify-content:center; /*�닔�룊 以묒븰�젙�젹*/
+    align-items:center; /*�닔吏� 以묒븰�젙�젹*/
+    position: fixed; /*�솕硫� �뒪�겕濡ㅻ릺�뜑�씪�룄 怨좎젙*/
+    display: none;
+    padding:15px;
+    cursor: pointer;
+  }
+
+  .wrap>.modal>.modal_content{
+    background-color: #fff;
+    position: relative;
+    width:100%;               /* 諛섏쓳�삎 �씠湲� �븣臾몄뿉 媛�濡쒓컪 100% */
+    max-width:500px;          /* �뙘�뾽�쓽 理쒕� �겕湲� */
+    border-radius:15px;       
+    overflow:hidden;          /* 媛곸쓣 �뾾�빐�쓣 �븣 �궡遺� �쁺�뿭�씠 ���뼱�굹�삤�뒗嫄� 諛⑹� */
+    left: 40%;
+    /* �뙘�뾽�씠 �뿀怨듭뿉 �뼚�엳�뒗 �벏�븳 �뒓�굦�쓣 二쇨린 �쐞�븳 洹몃┝�옄 �슚怨�. */
+    box-shadow: 5px 10px 10px 1px rgba(0,0,0,.7); 
+  }
+  
+  .modal_img{
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal_header{
+    border-radius:15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 23px;
+    letter-spacing: 1px;
+  }
+
+  .modal_body{
+   width: 100%;
+   height: 550px;
+   display: block;
+   overflow-y: auto;
+   overflow-x: hidden;
+   padding: 10px 30px 30px 30px;
+  }
+
+  .modal_body>div{
+    width: 100%;
+    height: 25px;
+    text-align: left;
+    display: table;
+    line-height: 35px;
+    font-weight: bold;
+    color: rgb(141, 141, 141);
+    margin-left: 10px;
+    font-size: 16px;
+  }
+
+  .modal_body>div>div{
+    width: 95%;
+    height: 25px;
+    text-align: left;
+    display: table;
+    margin-left: 15px;
+    color: black;
+    font-size: 15px;
+  }
+
+  #modal_member{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: left;
+    padding: 30px;
+  }
+
+  .modal_footer{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+  }
+
+  .modal_footer>button,.modal_footer>#updateSub{
+    display: inline-block;
+    width: 150px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-weight: 500;
+  }
+
+/* ========================= < 紐⑤떖 �뒪�겕濡ㅻ컮 �꽕�젙 > ========================= */
+  .modal_body::-webkit-scrollbar{
+    background-color: rgba(52, 52, 52, 0.452);
+    border-radius: 12px 12px 12px 12px;
+    scrollbar-width: thin;
+    width: 10px;
+    height: 50px;
+  }
+
+  .modal_body::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 12px 12px 12px 12px;
+    height: 5px;
+  }
+
+  .modal_body::-webkit-scrollbar-thumb:hover{
+    border: 1px solid rgb(52, 52, 52);
+  }
+
+    /* =============== Modal Update �쁺�뿭 =============== */
+    .modal_update{
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.75);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; 
+      justify-content:center;
+      align-items:center;
+      position: fixed; 
+      display: none;
+      padding:15px;
+    }
+  
+    .wrap>.modal_update>.modal_updateContent{
+      background-color: #fff;
+      position: relative;
+      width:100%;              
+      max-width:500px;          
+      border-radius:15px;       
+      overflow:hidden;          
+      left: 40%;
+      box-shadow: 5px 10px 10px 1px rgba(0,0,0,.9); 
+    }
+
+    .modal_body>form>div{
+      width: 100%;
+      height: 25px;
+      text-align: left;
+      display: table;
+      line-height: 35px;
+      font-weight: bold;
+      color: rgb(141, 141, 141);
+      margin-left: 10px;
+      font-size: 16px;
+    }
+  
+    .modal_body>form>div>div{
+      width: 95%;
+      height: 25px;
+      text-align: left;
+      display: table;
+      margin-left: 15px;
+      color: black;
+      font-size: 15px;
+    }
+
+    .modal_body input{
+      position: relative;
+      width: 50%;
+      text-align: left;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      display: table;
+    }
+
+    .modal_body #bor{
+      border: 0; 
+      outline: none;
+      font-size: 15px;
+      font-weight: 600;
+      display: table;
+      color: black;
+    }
+
+     /* =============== Modal delete �쁺�뿭 =============== */
+
+    .modal_delete{
+      background-color:rgba(0,0,0,.3);
+      justify-content:center;
+      align-items:center;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      display:none;
+      padding:15px; 
+      z-index: 3000;
+    }
+
+    .modal_delete_content{
+      position: relative;
+      top: 300px;
+      left: 40%;
+      width:100%;               
+      max-width:400px;          
+      border-radius:15px; 
+      overflow:hidden;
+      background-color: #fff;       
+      box-shadow: 5px 10px 10px 1px rgba(0,0,0,.8); 
+    }
+
+    .modal_delete_header{
+      width:100%;
+      height:50px;  
+      display:flex; 
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal_delete_footer{
+      width: 100%;
+      height: 50px;
+      display: inline-flex; /* �븳以� �굹�뿴 */
+      justify-content: center;
+      align-items: center;
+    }
+
+    #delbtn,#delsub{
+      width: 60px;
+      height: 25px;
+      margin: 15px;
+      border-radius: 15px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+
+/* ============================== < bottom �쁺�뿭 > ================================== */
+
+.bottom{
+    width: 1400px;
+}

@@ -1,0 +1,432 @@
+/* ============================== < TOP 영역 > ================================== */
+.top{
+  width: 100%;
+  height: 57px;
+  background-color: white;
+  border-bottom: 1px solid #aaa;
+}
+
+.top>table{
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.top>table tr>td{
+    border: 0;
+    border-radius: 6px;
+    line-height: 50px;
+    width: 100px;
+    background-color: rgba(41, 128, 185, 0.9);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0px;
+    text-align: center;
+    position: relative;
+    top: 6px;
+}
+
+.top>table tr>td:hover{
+  background-color: rgb(32, 112, 165);
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================== < middle 영역 > ================================== */
+.middle{
+    width: 1400px;
+    height: 90px;
+    text-align: center;
+}
+
+#ms_img{
+    vertical-align: middle;
+    background: url("../iconFolder/search_icon.png") no-repeat;
+    background-color : rgb(52, 152, 219);
+    background-position: center;
+    color: white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#mid_search{
+    line-height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: 15px;
+}
+
+#mid_search *{
+    border-radius: 6px;
+}
+
+#memberSearch{
+    width: 550px;
+    height: 50px;
+}
+
+#ms_select{
+    width: 110px;
+    height: 50px;
+}
+
+.middle_left{
+    width: 100%;
+    height: 2000px;
+    margin: 0 auto;
+    margin-right: 0;
+}
+
+#ml_table{
+    margin: 0 auto;
+    font-size: 14px;
+    box-sizing: border-box;
+    table-layout: fixed;
+}
+
+#ml_table table{
+  position: relative;
+  width: 100%;
+  table-layout: fixed;
+  white-space: nowrap;
+}
+
+#ml_table table>tbody td{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* table 양식 */
+  thead>#ml_tr {
+    position: sticky;
+    top: 0;
+    border-top: 0;
+    background-clip: padding-box;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(41, 127, 185, 0);
+    backdrop-filter: blur(2px);
+  }
+
+  thead {
+    margin: 0;
+  }
+
+  thead>#ml_tr>th{
+    border-top: 0px;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .list-area>thead>tr{
+    position: sticky;
+    background-clip: padding-box;
+  }
+
+  .list-area{
+    overflow: auto;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 0;
+  }
+
+  th,
+  td {
+    border: 1px solid #aaa;
+    background-clip: padding-box;
+    scroll-snap-align: start;
+  }
+
+  thead {
+    z-index: 1000;
+    position: relative;
+  }
+
+  th,
+  td {
+    padding: 0.6rem;
+    min-width: 4.5rem;
+    margin: 0;
+  }
+
+  td{
+    text-align: center;
+  }
+
+  tbody {
+    z-index: 10;
+    position: relative;
+  }
+
+  .list-area>tbody>tr{
+    cursor: pointer;
+  }
+
+  .list-area>tbody>tr:hover{
+		background-color: rgba(52, 52, 52, 0.2);
+	} 
+
+  /* =============== Modal 영역 =============== */
+  .modal{
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.75);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /*전체영역 설정*/
+    justify-content:center; /*수평 중앙정렬*/
+    align-items:center; /*수직 중앙정렬*/
+    position: fixed; /*화면 스크롤되더라도 고정*/
+    display: none;
+    padding:15px;
+    cursor: pointer;
+  }
+
+  .wrap>.modal>.modal_content{
+    background-color: #fff;
+    position: relative;
+    width:100%;               /* 반응형 이기 때문에 가로값 100% */
+    max-width:500px;          /* 팝업의 최대 크기 */
+    border-radius:15px;       
+    overflow:hidden;          /* 각을 없앴을 때 내부 영역이 튀어나오는걸 방지 */
+    left: 40%;
+    /* 팝업이 허공에 떠있는 듯한 느낌을 주기 위한 그림자 효과. */
+    box-shadow: 5px 10px 10px 1px rgba(0,0,0,.7); 
+  }
+  
+  .modal_img{
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal_header{
+    border-radius:15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 23px;
+    letter-spacing: 1px;
+  }
+
+  .modal_body{
+   width: 100%;
+   height: 550px;
+   display: block;
+   overflow-y: auto;
+   overflow-x: hidden;
+   padding: 10px 30px 30px 30px;
+  }
+
+  .modal_body>div{
+    width: 100%;
+    height: 25px;
+    text-align: left;
+    display: table;
+    line-height: 35px;
+    font-weight: bold;
+    color: rgb(141, 141, 141);
+    margin-left: 10px;
+    font-size: 16px;
+  }
+
+  .modal_body>div>div{
+    width: 95%;
+    height: 25px;
+    text-align: left;
+    display: table;
+    margin-left: 15px;
+    color: black;
+    font-size: 15px;
+  }
+
+  #modal_member{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: left;
+    padding: 30px;
+  }
+
+  .modal_footer{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+  }
+
+  .modal_footer>button,.modal_footer>#updateSub{
+    display: inline-block;
+    width: 150px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-weight: 500;
+  }
+
+  .modal_footer>button:hover{
+    box-shadow: 1px 1px 1px 0.1px;
+  }
+  
+/* ========================= < 모달 스크롤바 설정 > ========================= */
+  .modal_body::-webkit-scrollbar{
+    background-color: rgba(52, 52, 52, 0.452);
+    border-radius: 12px 12px 12px 12px;
+    scrollbar-width: thin;
+    width: 10px;
+    height: 50px;
+  }
+
+  .modal_body::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 12px 12px 12px 12px;
+    height: 5px;
+  }
+
+  .modal_body::-webkit-scrollbar-thumb:hover{
+    border: 1px solid rgb(52, 52, 52);
+  }
+
+    /* =============== Modal Update 영역 =============== */
+    .modal_update{
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.75);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; /*전체영역 설정*/
+      justify-content:center; /*수평 중앙정렬*/
+      align-items:center; /*수직 중앙정렬*/
+      position: fixed; /*화면 스크롤되더라도 고정*/
+      display: none;
+      padding:15px;
+    }
+  
+    .wrap>.modal_update>.modal_updateContent{
+      background-color: #fff;
+      position: relative;
+      width:100%;              
+      max-width:500px;          
+      border-radius:15px;       
+      overflow:hidden;          
+      left: 40%;
+      box-shadow: 5px 10px 10px 1px rgba(0,0,0,.9); 
+    }
+
+    .modal_body>form>div{
+      width: 100%;
+      height: 25px;
+      text-align: left;
+      display: table;
+      line-height: 35px;
+      font-weight: bold;
+      color: rgb(141, 141, 141);
+      margin-left: 10px;
+      font-size: 16px;
+    }
+  
+    .modal_body>form>div>div{
+      width: 95%;
+      height: 25px;
+      text-align: left;
+      display: table;
+      margin-left: 15px;
+      color: black;
+      font-size: 15px;
+    }
+
+    .modal_body input{
+      position: relative;
+      width: 50%;
+      text-align: left;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      display: table;
+    }
+
+    .modal_body #bor{
+      border: 0; /* 기존 input 테두리 제어 */
+      outline: none; /* input클릭시 테두리 제어 */
+      font-size: 15px;
+      font-weight: 600;
+      display: table;
+      color: black;
+    }
+
+     /* =============== Modal delete 영역 =============== */
+
+    .modal_delete{
+      background-color:rgba(0,0,0,.3);
+      justify-content:center;
+      align-items:center;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      display:none;
+      padding:15px; 
+      z-index: 3000;
+    }
+
+    .modal_delete_content{
+      position: relative;
+      top: 300px;
+      left: 40%;
+      width:100%;               
+      max-width:400px;          
+      border-radius:15px; 
+      overflow:hidden;
+      background-color: #fff;       
+      box-shadow: 5px 10px 10px 1px rgba(0,0,0,.8); 
+    }
+
+    .modal_delete_header{
+      width:100%;
+      height:50px;  
+      display:flex; 
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal_delete_footer{
+      width: 100%;
+      height: 50px;
+      display: inline-flex; /* 한줄 나열 */
+      justify-content: center;
+      align-items: center;
+    }
+
+    #delbtn,#delsub{
+      width: 60px;
+      height: 25px;
+      margin: 15px;
+      border-radius: 15px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+/* ============================== < bottom 영역 > ================================== */
+
+.bottom{
+    width: 1400px;
+}
+
+

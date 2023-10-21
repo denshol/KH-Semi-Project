@@ -1,0 +1,158 @@
+/* ============================== < TOP 영역 > ================================== */
+.top{
+  width: 99%;
+  height: 57px;
+  background-color: white;
+  border-bottom: 1px solid #aaa;
+  position: relative;
+  margin-left: 10px;
+}
+
+.top>table tr>td{
+    border: 0;
+    border-right: 1px solid white;
+    border-radius: 5px;
+    line-height: 40px;
+    background-color: rgb(41, 128, 185);
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+}
+
+.top>table tr>td:hover{
+  background-color: rgb(52, 52, 52);
+}
+
+/* ============================== < middle 영역 > ================================== */
+.middle{
+    position: relative;
+    width: 1400px;
+    height: 90px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#ms_img{
+    vertical-align: middle;
+    background: url("../iconFolder/search_icon.png") no-repeat;
+    background-color : rgb(41, 128, 185);
+    color: white;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+}
+
+#mid_search{
+    line-height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: 15px;
+    
+}
+
+#mid_search *{
+    border-radius: 6px;
+}
+
+#memberSearch{
+    width: 550px;
+    height: 64px;
+}
+
+#ms_select{
+    width: 110px;
+    height: 64px;
+}
+
+.middle_left{
+    width: 100%;
+    height: 2000px;
+    margin: 0 auto;
+    margin-right: 0;
+}
+
+#ml_table{
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  #ml_table table{
+  border-top: 1px solid #aaa;
+  width: 99%;
+  margin: 0 auto;
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    border-top: 0;
+    background-clip: padding-box;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 0;
+  }
+
+  th,
+  td {
+    border: 1px solid #aaa;
+    background-clip: padding-box;
+    scroll-snap-align: start;
+  }
+
+  thead {
+    z-index: 1000;
+    position: relative;
+  }
+
+  th,
+  td {
+    padding: 0.6rem;
+    min-width: 4.5rem;
+    margin: 0;
+  }
+
+  td{
+    text-align: left;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    border-top: 0;
+    background-clip: padding-box;
+  }
+
+  tbody {
+    z-index: 10;
+    position: relative;
+  }
+
+  #insert_event{
+    width: 100px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-right:4px;
+  }
+
+  #insert_event button{
+    background-color: rgb(41, 128, 185);
+    border-radius: 4px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    cursor: pointer;
+  }
+
+
+/* ============================== < bottom 영역 > ================================== */
+
+.bottom{
+    width: 1400px;
+}

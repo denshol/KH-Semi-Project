@@ -1,0 +1,137 @@
+.noticeContent{
+    display: inline-block;
+    vertical-align: middle;
+    justify-content: center;
+    width: 50%;
+    height: 850px;
+    border: 1px solid black;
+    margin-top: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.header{
+    width: 100%;
+    height: 10%;
+    display: table;
+}
+
+.header>div{
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#notice_head_img{
+    position: relative;
+    float: left;
+    vertical-align: middle;
+    left: 220px;
+}
+
+#notice_head_hd{
+    position: relative;
+    display: flexbox;
+    vertical-align: middle;
+    justify-content: center;
+    top: 25px;
+    right: 25px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.body{
+    width: 100%;
+    height: 75%;
+    display: table;
+}
+
+.body>div{
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    text-align: left;
+    padding: 30px;
+    overflow: hidden;
+}
+
+#body_head{
+    width: 100%;
+    height: 10%;
+    display: table;
+}
+
+#body_head>div{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+#notice_head_title{
+    text-align: left;
+    float: left;
+    line-height: 61px;
+}
+
+#notice_head_input{
+   position: relative;
+   text-align: center;
+   float: left;
+   left: 15px;
+   line-height: 61px;
+}
+
+#notice_head_input>input{
+    position: relative;
+    line-height: 40px;
+    width: 642px;
+    right: 15px;
+} 
+
+.body>div>div>textarea{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    text-align: left;
+}
+
+.footer{
+    position: relative;
+    width: 100%;
+    height: 5%;
+}
+
+.footer>input,.footer>button{
+    position: relative;
+    width: 120px;
+    height: 40px;
+    top: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#ft_button{
+    position: relative;
+    width: 120px;
+    height: 40px;
+    top: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.footer>input:hover,.footer>button:hover{
+    box-shadow: 1px 1px 1px 0.1px;
+}
+
+#head_faq{
+    position: relative;
+    display: table-cell;
+    justify-content: center;
+    top: 10px;
+}
+
+#body_faq{
+    position: relative;
+    top: 10px;
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<!--  리뷰작성-->
+	<entry key="rBtnCk">
+		SELECT PRODUCT_NO
+		FROM PAYMENT
+		WHERE PRODUCT_NO = ?
+	</entry>
+	<!--  리뷰작성-->
+	<entry key="insertReview">
+		INSERT INTO REVIEW(REVIEW_NO,MEMBER_NO,PRODUCT_NO,REVIEW_STAR,REVIEW_CONTENT)
+		VALUES(SEQ_RNO.NEXTVAL,?,?,?,?)
+	</entry>
+	<!--  리뷰리스트 출력-->
+	<entry key="selectReview">
+		SELECT REVIEW_STAR,REVIEW_CONTENT,CREATE_DATE,MEMBER_ID
+		FROM REVIEW R
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE PRODUCT_NO = ?
+	</entry>
+	<!--  pna작성-->
+	<entry key="insertQna">
+		INSERT INTO BOARD(BOARD_NO,MEMBER_NO,PRODUCT_NO,BOARD_CATEGORY,BOARD_TITLE,BOARD_CONTENT)
+		VALUES (SEQ_BNO.NEXTVAL,?,?,3,?,?)
+	</entry>
+	
+	<!-- 공지사항 조회 -->
+	<entry key="selectNoticeList">
+		SELECT BOARD_NO,MEMBER_NAME,BOARD_TITLE,BOARD_CONTENT,BOARD_COUNT,CREATE_DATE
+		FROM BOARD B
+	    JOIN MEMBER M USING(MEMBER_NO)
+		WHERE BOARD_CATEGORY = 2
+		AND B.STATUS = 'N'
+		ORDER BY CREATE_DATE DESC
+	</entry>
+	
+	<!-- 공지사항 등록 -->
+	<entry key="insertNotice">
+		INSERT INTO BOARD(BOARD_NO,MEMBER_NO,BOARD_CATEGORY,BOARD_TITLE,BOARD_CONTENT)
+			   VALUES (SEQ_BNO.NEXTVAL,?,2,?,?)
+	</entry>
+	
+	<!-- 공지사항 첨부파일 -->
+	<entry key="insertAttachment">
+		INSERT INTO ATTACHMENT(ATTACHMENT_ID,BOARD_NO,ATTACHMENT_NAME,ATTACHMENT_CHANGE,ATTACHMENT_PATH,FILE_LEVEL)
+			   VALUES (SEQ_ANO.NEXTVAL,SEQ_BNO.CURRVAL,?,?,?,?)
+	</entry>
+	
+	<!-- 공지사항 상세조회 -->
+	<entry key="detailBoardAdmin">
+		SELECT BOARD_NO,MEMBER_NAME,BOARD_TITLE,BOARD_CONTENT,BOARD_COUNT,CREATE_DATE,B.STATUS
+		FROM BOARD B
+	    JOIN MEMBER M USING(MEMBER_NO)
+	    WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 공지사항 상세조회 첨부파일 -->
+	<entry key="detailAttachmentAdmin">
+		SELECT ATTACHMENT_ID, ATTACHMENT_NAME, ATTACHMENT_CHANGE, ATTACHMENT_PATH
+		FROM ATTACHMENT
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<entry key="updateNoticeAdmin">
+		UPDATE BOARD
+		SET BOARD_TITLE = ?
+		   ,BOARD_CONTENT = ?
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<entry key="updateAttachmentAdmin">
+		UPDATE ATTACHMENT
+		SET ATTACHMENT_NAME = ?
+			,ATTACHMENT_CHANGE = ?
+			,ATTACHMENT_PATH = ?
+			,UPDATE_DATE = SYSDATE
+		WHERE ATTACHMENT_ID = ?
+	</entry>
+	
+	<entry key="newAtAdmin">
+		INSERT INTO ATTACHMENT(ATTACHMENT_ID,BOARD_NO,ATTACHMENT_NAME,ATTACHMENT_CHANGE,ATTACHMENT_PATH)
+				VALUES(SEQ_ANO.NEXTVAL,?,?,?,?)
+	</entry>
+	
+	<!-- 공지사항 삭제 -->
+	<entry key="deleteNoticeAdmin">
+		UPDATE BOARD
+		SET STATUS = 'Y'
+		WHERE BOARD_NO = ?
+		AND BOARD_CATEGORY = 2
+	</entry>
+	
+	<!-- 1:1문의 조회 -->
+	<entry key="selectInquireList">
+		SELECT BOARD_NO,MEMBER_ID,PRODUCT_NO,BOARD_TITLE,BOARD_CONTENT,BOARD_ANSWERED,CREATE_DATE
+		FROM BOARD B
+	    JOIN MEMBER M USING(MEMBER_NO)
+		WHERE BOARD_CATEGORY = 3
+		AND B.STATUS = 'N'
+		ORDER BY CREATE_DATE DESC
+	</entry>
+	
+	<!-- 1:1문의 상세조회 -->
+	<entry key="inquireDetailAdmin">
+		SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,BOARD_ANSWERED
+		FROM BOARD
+		WHERE BOARD_NO = ?
+		AND BOARD_CATEGORY = 3
+	</entry>
+	
+	<!-- 1:1문의 답변 등록 -->
+	<entry key="inquireAnswer">
+		UPDATE BOARD
+		SET BOARD_ANSWERED = ?
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- FAQ 게시글 전체 조회 -->
+	<entry key="selectFaqAdmin">
+		SELECT *
+		FROM BOARD
+		WHERE BOARD_CATEGORY = 4
+		AND STATUS = 'N'
+		ORDER BY BOARD_NO DESC
+	</entry>
+	
+	<!-- FAQ등록 -->
+	<entry key="insertFaqAdmin">
+		INSERT INTO BOARD (BOARD_NO,MEMBER_NO,BOARD_CATEGORY,BOARD_TITLE,BOARD_CONTENT)
+				VALUES(SEQ_BNO.NEXTVAL,?,4,?,?)
+	</entry>
+	
+	<!-- FAQ 수정전 조회 -->
+	<entry key="selFaqAdmin">
+		SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DATE
+		FROM BOARD
+		WHERE BOARD_NO = ?
+		AND STATUS = 'N'
+	</entry>
+	
+	<!-- FAQ 수정 -->
+	<entry key="updateFaqAdmin">
+		UPDATE BOARD
+		SET BOARD_TITLE = ?
+			,BOARD_CONTENT = ?
+		WHERE BOARD_NO = ?
+		AND STATUS = 'N'
+	</entry>
+	
+	<!-- FAQ 삭제 -->
+	<entry key="delFaqAdmin">
+		UPDATE BOARD
+		SET STATUS = 'Y'
+		WHERE BOARD_NO = ?
+		AND STATUS = 'N'
+	</entry>
+</properties>

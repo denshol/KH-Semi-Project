@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+<entry key="searchCidAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE COUPON_NO = ?
+</entry>
+<entry key="searchMnoAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE MEMBER_NO = ?
+</entry>
+<entry key="searchCnameAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE COUPON_NAME = ?
+</entry>
+<entry key="searchDCAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE COUPON_DC = ?
+</entry>
+<entry key="searchPeriodAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE COUPON_PERIOD = ?
+</entry>
+<entry key="searchEnrollAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE COUPON_SDATE = ?
+</entry>
+<entry key="searchStAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE STATUS = ?
+</entry>
+<entry key="selectCouponAdmin">
+	SELECT *
+	FROM COUPON
+</entry>
+
+<!-- 쿠폰 상세페이지 쿼리 -->
+<entry key="detailCouponAdmin">
+	SELECT *
+	FROM COUPON
+	WHERE COUPON_NO = ?
+</entry>
+
+<!-- 쿠폰 정보 수정 메소드 관리자버젼-->
+<entry key="updateCouponAdmin">
+	UPDATE COUPON
+	SET  MEMBER_NO = ?
+	    ,COUPON_NAME = ?
+	    ,COUPON_DC = ?
+	    ,COUPON_PERIOD = ?
+	    ,COUPON_SDATE = ?
+	    ,STATUS = ?
+	WHERE COUPON_NO = ?
+</entry>
+
+<entry key="deleteCouponAdmin">
+	UPDATE COUPON 
+	SET STATUS = 'N' 
+	WHERE COUPON_NO = ?
+
+</entry>
+
+</properties>

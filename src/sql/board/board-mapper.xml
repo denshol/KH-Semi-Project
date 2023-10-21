@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+
+<!-- 공지사항 조회 -->
+<entry key="selectNoticeList">
+	SELECT BOARD_NO,MEMBER_NAME,BOARD_TITLE,BOARD_CONTENT,BOARD_COUNT,CREATE_DATE
+	FROM BOARD B
+    JOIN MEMBER M USING(MEMBER_NO)
+	WHERE BOARD_CATEGORY = 2
+	ORDER BY CREATE_DATE DESC
+</entry>
+
+<!-- 공지사항 등록 -->
+<entry key="insertNotice">
+	INSERT INTO BOARD(BOARD_NO,MEMBER_NO,BOARD_CATEGORY,BOARD_TITLE,BOARD_CONTENT)
+		   VALUES (SEQ_BNO.NEXTVAL,?,2,?,?)
+</entry>
+
+<!-- 공지사항 첨부파일 -->
+<entry key="insertAttachment">
+	INSERT INTO ATTACHMENT(ATTACHMENT_ID,BOARD_NO,ATTACHMENT_NAME,ATTACHMENT_CHANGE,ATTACHMENT_PATH,FILE_LEVEL)
+		   VALUES (SEQ_ANO.NEXTVAL,SEQ_BNO.CURRVAL,?,?,?,?)
+</entry>
+
+<!-- 공지사항 상세조회 -->
+<entry key="detailBoardAdmin">
+	SELECT BOARD_NO,MEMBER_NAME,BOARD_TITLE,BOARD_CONTENT,BOARD_COUNT,CREATE_DATE,B.STATUS
+	FROM BOARD B
+    JOIN MEMBER M USING(MEMBER_NO)
+    WHERE BOARD_NO = ?
+</entry>
+
+<!-- 공지사항 상세조회 첨부파일 -->
+<entry key="detailAttachmentAdmin">
+	SELECT ATTACHMENT_ID, ATTACHMENT_NAME, ATTACHMENT_CHANGE, ATTACHMENT_PATH
+	FROM ATTACHMENT
+	WHERE BOARD_NO = ?
+</entry>
+
+<entry key="updateNoticeAdmin">
+	UPDATE BOARD
+	SET BOARD_TITLE = ?
+	   ,BOARD_CONTENT = ?
+	WHERE BOARD_NO = ?
+</entry>
+
+<entry key="updateAttachmentAdmin">
+	UPDATE ATTACHMENT
+	SET ATTACHMENT_NAME = ?
+		,ATTACHMENT_CHANGE = ?
+		,ATTACHMENT_PATH = ?
+		,UPDATE_DATE = SYSDATE
+	WHERE ATTACHMENT_ID = ?
+</entry>
+
+<entry key="newAtAdmin">
+	INSERT INTO ATTACHMENT(ATTACHMENT_ID,BOARD_NO,ATTACHMENT_NAME,ATTACHMENT_CHANGE,ATTACHMENT_PATH)
+			VALUES(SEQ_ANO.NEXTVAL,?,?,?,?)
+</entry>
+
+</properties>

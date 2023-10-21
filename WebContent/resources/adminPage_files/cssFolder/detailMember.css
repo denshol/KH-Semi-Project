@@ -1,0 +1,21 @@
+.modal-header{
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.modal-header>button{
+    margin: 0;
+    position: relative;
+    left: 120px;
+}
+
+.modal-title{
+    top : 40px;
+}
+
+.modal-body{
+    width: 200px;
+    height: 500px;
+    text-align: center;
+    padding: 0px;
+}

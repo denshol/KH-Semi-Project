@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="loginMember">
+		SELECT *
+		FROM MEMBER
+		WHERE MEMBER_ID = ?
+		AND MEMBER_PWD = ? 
+		AND STATUS = 'Y'
+	</entry>
+	
+	<entry key="insertMember">
+		INSERT INTO MEMBER(MEMBER_NO
+						   ,GRADE
+						   ,MEMBER_ROLE
+						   ,MEMBER_ID
+						   ,MEMBER_PWD
+						   ,MEMBER_NAME
+						   ,MEMBER_BIRTH
+						   ,GENDER
+						   ,PHONE
+						   ,EMAIL
+						   ,ADDRESS
+						   )
+					VALUES(SEQ_MNO.NEXTVAL
+						   ,DEFAULT
+						   ,'1'
+						   ,?
+						   ,?
+						   ,?
+						   ,?
+						   ,?
+						   ,?
+						   ,?
+						   ,?)	   
+	</entry>
+	
+	<entry key="checkId">
+		SELECT *
+		FROM MEMBER
+		WHERE MEMBER_ID = ?
+	</entry>
+
+	<entry key="selectId">
+		SELECT MEMBER_ID
+		FROM MEMBER
+		WHERE MEMBER_NAME = ?
+		AND MEMBER_BIRTH = ?
+		AND PHONE = ?
+	</entry>
+	
+	<entry key="findId">
+		SELECT MEMBER_ID
+		FROM MEMBER
+		WHERE MEMBER_NAME = ?
+		AND PHONE = ?
+		AND MEMBER_BIRTH = ?          
+	</entry>
+	
+	<entry key="searchPwd">
+		SELECT MEMBER_PWD
+        FROM MEMBER
+        WHERE MEMBER_ID = ?
+        AND MEMBER_NAME = ?
+        AND MEMBER_BIRTH = ?
+        AND PHONE = ?
+	</entry>
+	
+	<!-- 총 회원 수 -->
+	<entry key="selMemberAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+	</entry>	
+	
+	<!-- 아이디 검색 수 -->
+	<entry key="selIdAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE MEMBER_ID = ?
+	</entry>
+	
+	<!-- 이름 검색 수 -->
+	<entry key="selNameAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE MEMBER_NAME = ?
+	</entry>
+	
+	<!-- 생년월일 검색 수 -->
+	<entry key="selBirthAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE MEMBER_BIRTH LIKE '%'||?||'%'
+	</entry>
+	
+	<!-- 번호 검색 수 -->
+	<entry key="selPhoneAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE PHONE LIKE '%'||?||'%'
+	</entry>
+	
+	<!-- 이메일 검색 수 -->
+	<entry key="selEmailAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE EMAIL LIKE '%'||?||'%'
+	</entry>
+	
+	<!-- 주소 검색 수 -->
+	<entry key="selAddressAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE ADDRESS LIKE '%'||?||'%'
+	</entry>
+	
+	<!-- 회원 등급 검색 수 -->
+	<entry key="selGradeAdminCount">
+		SELECT COUNT(*) COUNT
+		FROM MEMBER
+		WHERE GRADE = ?
+	</entry>
+	
+	<!-- 회원관리 조회 -->
+	<entry key="selectAdminMember">
+		SELECT *
+		FROM(SELECT ROWNUM RNUM, A.*
+			 FROM(SELECT *
+			 	  FROM MEMBER
+			 	  ORDER BY MEMBER_NO DESC) A)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 회원 상세조회 -->
+	<entry key="detailAdminMember">
+		SELECT *
+		FROM MEMBER
+		WHERE MEMBER_NO = ?
+		ORDER BY MEMBER_NO DESC
+	</entry>
+	
+	<!-- 검색 카테고리 -->
+	<entry key="searchIdAdmin">
+	SELECT *
+	FROM(SELECT ROWNUM RNUM, A.*
+		 FROM(SELECT *
+			  FROM MEMBER
+			  WHERE MEMBER_ID = ?
+			  ORDER BY MEMBER_NO DESC) A)
+	WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="searchNameAdmin">
+	SELECT *
+	FROM(SELECT ROWNUM RNUM, A.*
+		 FROM(SELECT *
+			  FROM MEMBER
+			  WHERE MEMBER_NAME LIKE'%'||?||'%'
+			  ORDER BY MEMBER_NO DESC) A)
+	WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="searchBirthAdmin">
+	SELECT *
+	FROM(SELECT ROWNUM RNUM, A.*
+		 FROM(SELECT *
+			  FROM MEMBER
+			  WHERE MEMBER_BIRTH LIKE'%'||?||'%'
+			  ORDER BY MEMBER_NO DESC) A)
+	WHERE RNUM BETWEEN ? AND ?	
+	</entry>
+	
+	<entry key="searchPhoneAdmin">
+	SELECT *
+	FROM(SELECT ROWNUM RNUM, A.*
+		 FROM(SELECT *
+			  FROM MEMBER
+			  WHERE PHONE LIKE'%'||?||'%'
+			  ORDER BY MEMBER_NO DESC) A)
+	WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchEmailAdmin">
+	SELECT *
+	FROM(SELECT ROWNUM RNUM, A.*
+		 FROM(SELECT *
+			  FROM MEMBER
+			  WHERE EMAIL LIKE'%'||?||'%'
+			  ORDER BY MEMBER_NO DESC) A)
+	WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="searchAddressAdmin">
+	SELECT *
+	FROM(SELECT ROWNUM RNUM, A.*
+		 FROM(SELECT *
+			  FROM MEMBER
+			  WHERE ADDRESS LIKE'%'||?||'%'
+			  ORDER BY MEMBER_NO DESC) A)
+	WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="searchGradeAdmin">
+	SELECT *
+	FROM(SELECT ROWNUM RNUM, A.*
+		 FROM(SELECT *
+			  FROM MEMBER
+			  WHERE GRADE = ?
+			  ORDER BY MEMBER_NO DESC) A)
+	WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 회원 수정 -->
+	<entry key="updateMemberAdmin">
+		UPDATE MEMBER
+		SET MEMBER_ID = ?
+		   ,MEMBER_PWD = ?
+		   ,MEMBER_NAME = ?
+		   ,MEMBER_BIRTH = ?
+		   ,GENDER = ?
+		   ,PHONE = ?
+		   ,EMAIL = ?
+		   ,ADDRESS = ?
+		   ,MODIFY_DATE = SYSDATE
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 회원 삭제 -->
+	<entry key="deleteMemberAdmin">
+		UPDATE MEMBER
+		SET STATUS = 'N'
+		WHERE MEMBER_NO = ?
+		AND STATUS = 'Y'
+	</entry>
+
+	<!-- 쿠폰 조회 -->
+	<entry key="selectCoupon">
+		SELECT *
+		FROM COUPON
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 주문 조회 -->
+	<entry key="selectShoppingList">
+		SELECT ORDER_NO, PRODUCT_NAME, DEPOSIT_NAME, PAYMENT
+		FROM PAYMENT P
+		JOIN PRODUCT PD USING (PRODUCT_NO)
+		WHERE P.MEMBER_NO= ?
+	</entry>
+	
+	<!-- 주문 상세 조회 -->
+	<entry key="selectModal">
+		SELECT PAYMENT_NUMBER, MEMBER_NAME, CREATED_AT, PAYMENT, ORDER_REQUEST, BANK_NAME, DEPOSIT_NAME, ADDRESS_NAME, POST,
+            ROAD_ADDRESS, DETAIL_ADDRESS, STATE, DELIVERY_COST, ORDER_NO, PRODUCT_NAME, QUANTITY
+		FROM PAYMENT P 
+		JOIN MEMBER M USING (MEMBER_NO)
+		JOIN PRODUCT PD USING (PRODUCT_NO)
+		JOIN P_ORDER PO USING (ORDER_NO)
+		WHERE ORDER_NO = ?
+	</entry>
+	
+	<!-- 회원 탈퇴 -->
+	<entry key="deleteMember">
+		UPDATE MEMBER
+		SET STATUS = 'N'
+		WHERE MEMBER_ID = ?
+		AND MEMBER_PWD = ?
+		AND STATUS = 'Y'
+	</entry>
+	
+	<!-- 회원 정보 수정 -->
+	<entry key="updateMember">
+		UPDATE MEMBER M
+		SET MEMBER_PWD = ? 
+		   ,PHONE = ?
+		   ,EMAIL = ?
+		   ,MEMBER_BIRTH = ?
+		   ,MODIFY_DATE = SYSDATE
+		WHERE M.MEMBER_ID = ?
+	</entry>
+	
+	<!-- 회원 정보 수정 후 재조회 -->
+	<entry key="selectMember">
+		SELECT *
+		FROM MEMBER
+		WHERE MEMBER_ID = ?
+	</entry>
+
+
+</properties>

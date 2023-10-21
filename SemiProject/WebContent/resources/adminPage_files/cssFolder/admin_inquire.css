@@ -1,0 +1,217 @@
+/* ============================== < TOP 영역 > ================================== */
+.top{
+  width: 100%;
+  height: 57px;
+  background-color: white;
+}
+
+.top>table{
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.top>table tr>td{
+    border: 0;
+    border-radius: 6px;
+    line-height: 50px;
+    width: 100px;
+    background-color: rgba(41, 128, 185, 0.9);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0px;
+    text-align: center;
+    position: relative;
+    top: 6px;
+}
+
+.top>table tr>td:hover{
+  background-color: rgb(32, 112, 165);
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ============================== < middle 영역 > ================================== */
+.middle{
+  width: 1400px;
+  height: 90px;
+  text-align: center;
+}
+
+#ms_img{
+  vertical-align: middle;
+  background: url("../iconFolder/search_icon.png") no-repeat;
+  background-color : rgb(52, 152, 219);
+  background-position: center;
+  color: white;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#mid_search{
+  line-height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: 15px;
+}
+
+#noticeBtn{
+  position: relative;
+  display: flexbox;
+  vertical-align: middle;
+  justify-content: right;
+  float: right;
+  right: 130px;
+  top: 30px;
+}
+
+#noticeBtn>button{
+  background-color : rgb(52, 152, 219);
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+#noticeBtn>button:hover{
+  background-color: rgb(32, 112, 165);
+  cursor: pointer;  
+}
+
+#mid_search *{
+  border-radius: 6px;
+}
+
+#memberSearch{
+  width: 550px;
+  height: 50px;
+}
+
+#ms_select{
+  width: 110px;
+  height: 50px;
+}
+
+.middle_left{
+  width: 100%;
+  height: 2000px;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
+#ml_table{
+  margin: 0 auto;
+  font-size: 14px;
+  box-sizing: border-box;
+  table-layout: fixed;
+}
+
+#ml_table table{
+position: relative;
+width: 100%;
+table-layout: fixed;
+white-space: nowrap;
+}
+
+#ml_table table>tbody td{
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+/* table 양식 */
+thead>#ml_tr {
+  position: sticky;
+  top: 0;
+  border-top: 0;
+  background-clip: padding-box;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 127, 185, 0);
+  backdrop-filter: blur(2px);
+}
+
+thead {
+  margin: 0;
+}
+
+thead>#ml_tr>th{
+  border-top: 0px;
+  border-left: 0;
+  border-right: 0;
+}
+
+.list-area>thead>tr{
+  position: sticky;
+  background-clip: padding-box;
+}
+
+.list-area{
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border: 0;
+}
+
+th,
+td {
+  border: 1px solid #aaa;
+  background-clip: padding-box;
+  scroll-snap-align: start;
+}
+
+thead {
+  z-index: 1000;
+  position: relative;
+}
+
+th,
+td {
+  padding: 0.6rem;
+  min-width: 4.5rem;
+  margin: 0;
+}
+
+td{
+  text-align: center;
+}
+
+tbody {
+  z-index: 10;
+  position: relative;
+}
+
+.list-area>tbody>tr{
+  cursor: pointer;
+}
+
+.list-area>tbody>tr:hover{
+  background-color: rgba(52, 52, 52, 0.2);
+} 
+
+#insert_notice{
+  position: absolute;
+  left: 86.4%;
+  bottom: 5px;
+  width: 100px;
+  height: 35px;
+}
+
+#insert_notice button{
+  background-color: rgb(41, 128, 185);
+  color: white;
+}
+
+
+
+
+/* ============================== < bottom 영역 > ================================== */
+
+.bottom{
+    width: 1400px;
+}
